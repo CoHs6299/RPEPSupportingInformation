@@ -1,6 +1,10 @@
 # Supplementary Materials for RPEP-based Laboratory Automation Platform
 
 This repository contains supplementary materials for the research article describing the RPEP-based laboratory automation platform. The files include video recordings of key experimental workflows and corresponding RPEP instruction tables in Excel format. These resources are provided to assist with experiment replication, result verification, and further research.
+## Quick Access
+
+- **Try the RPEP Assistant online:**  
+  [https://chatgpt.com/g/g-6762c202dca481919464ff7d91e6142f-rpep-assistant](https://chatgpt.com/g/g-6762c202dca481919464ff7d91e6142f-rpep-assistant)
 
 ## File List
 
