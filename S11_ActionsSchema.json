@@ -1,0 +1,146 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Robot Action API",
+    "description": "API for sending robot actions and positions.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://example.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/robot/execute": {
+      "post": {
+        "operationId": "sendRobotActions",
+        "summary": "Sends a list of actions for robots to execute.",
+        "description": "This endpoint accepts a list of robot actions, including positions and actions to execute.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SpreedSheet": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "RobotID": {
+                          "type": "string",
+                          "description": "Unique identifier of the robot."
+                        },
+                        "MovePos": {
+                          "type": "string",
+                          "description": "Position to move the robot."
+                        },
+                        "PosOffset": {
+                          "type": "integer",
+                          "description": "Row number of the 96-well plate."
+                        },
+                        "ExecuteAction": {
+                          "type": "string",
+                          "description": "Action to be executed by the end effector."
+                        },
+                        "Parm1": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 1."
+                        },
+                        "Parm2": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 2."
+                        },
+                        "Parm3": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 3."
+                        },
+                        "Parm4": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 4."
+                        },
+                        "Parm5": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 5."
+                        },
+                        "Parm6": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 6."
+                        },
+                        "Parm7": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 7."
+                        },
+                        "Parm8": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "Optional parameter 8."
+                        }
+                      },
+                      "required": [
+                        "RobotID",
+                        "MovePos",
+                        "RowNum",
+                        "ExecuteAction"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Actions successfully received and processed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Indicates whether the actions were processed successfully."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Additional information about the result."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "error": {
+                      "type": "string",
+                      "description": "Description of the error."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
