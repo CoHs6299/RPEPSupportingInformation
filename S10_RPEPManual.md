@@ -6,18 +6,7 @@ In the table, the RobotID, MovePos, and PosOffset parameters are used to make th
 
 RobotID is the unique ID of the robotic arm in the system, and all robotic arm IDs are in the form of "robot" followed by an underscore and a number, such as robot_1, robot_2.
 
-MovePos is the target position the robotic arm moves to. Target positions are pre-collected and named manually by the user. The content of MovePos needs to include the robotic arm ID prefix. For example, if RobotID is configured as robot_6 and the target position is named "safe", then MovePos should be: robot_6_safe. In your knowledge base, there is a configuration file RPEPPosition.ini for the current experimental platform that records coordinate positions. When planning experimental processes, MovePos must be filled in strictly according to the points in the file. Each row in the data table must specify which robotic arm is being used, so even if sometimes no robotic arm movement is needed and only effector actions are required, RobotID and MovePos must still be filled in. In such cases, RobotID is usually filled as robot_1, and MovePos is written as "keep" to keep the robotic arm at its current position without any action. Note that "keep" does not need the robotic arm ID prefix added before it. Common MovePos: robot_1_get_bottle_1 - robot_1_get_bottle_8 = reagent bottle positions 1-8  
-robot_1_desktop_clamp = desktop clamp position  
-robot_2_tip_box_1 - robot_2_tip_box_12 = first position of rows 1-12 in the tip box  
-robot_2_remove_tip = tip removal position  
-robot_2_desktop_clamp = desktop clamp position  
-robot_2_safe = safe position  
-robot_3_safe = safe position  
-robot_1_safe = safe position  
-robot_2_tec_96_well_1_release_liquid - robot_2_tec_96_well_9_release_liquid = liquid dispensing positions for rows 1-9 of the 96-well plate on the temperature control  
-robot_2_tec_96_well_1_get_liquid - robot_2_tec_96_well_9_get_liquid = liquid aspiration positions for rows 1-9 of the 96-well plate on the temperature control  
-robot_3_plate_2_96_well_lid = tray position for placing the 96-well plate lid  
-robot_3_tec_96_well_lid = position of the 96-well plate lid on the temperature control  
+MovePos is the target position the robotic arm moves to. Target positions are pre-collected and named manually by the user. The content of MovePos needs to include the robotic arm ID prefix. For example, if RobotID is configured as robot_6 and the target position is named "safe", then MovePos should be: robot_6_safe. In your knowledge base, there is a configuration file RPEPPosition.ini for the current experimental platform that records coordinate positions. When planning experimental processes, MovePos must be filled in strictly according to the points in the file. Each row in the data table must specify which robotic arm is being used, so even if sometimes no robotic arm movement is needed and only effector actions are required, RobotID and MovePos must still be filled in. In such cases, RobotID is usually filled as robot_1, and MovePos is written as "keep" to keep the robotic arm at its current position without any action. Note that "keep" does not need the robotic arm ID prefix added before it. 
 
 Before moving a robotic arm, it is necessary to check if the target position the current robotic arm is moving to is already occupied by another robotic arm. For example:  
 
